@@ -2,12 +2,13 @@
 using API.Entities;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")] // api/user
-public class UserController: ControllerBase
+public class UserController : ControllerBase
 {
     private readonly DBContext _dbContext;
 
@@ -19,19 +20,18 @@ public class UserController: ControllerBase
     //HTTP ENDPOINTS!!
 
     [HttpGet]
-    public ActionResult<IEnumerable<AppUser>> GetUsers()
+    public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
     {
-       var users = _dbContext.Users.ToList();
-       
-       return users; //200 Ok Response
+        var users = await _dbContext.Users.ToListAsync();
+
+        return users; //200 Ok Response
     }
 
     [HttpGet("{id}")] //api/user/2
 
-    public ActionResult<AppUser> GetUser(int id)
+    public async Task<ActionResult<AppUser>> GetUser(int id)
     {
-        return _dbContext.Users.Find(id);
-     
+        return await _dbContext.Users.FindAsync(id);
     }
 
 }
