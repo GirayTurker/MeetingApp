@@ -2539,11 +2539,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\.NET+Angular\\DatingApp\\API\\API.csproj",
+      "projectUniqueName": "D:\\DotNETplusAngular\\DatingApp\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\.NET+Angular\\DatingApp\\API\\API.csproj",
+      "projectPath": "D:\\DotNETplusAngular\\DatingApp\\API\\API.csproj",
       "packagesPath": "C:\\Users\\grytr\\.nuget\\packages\\",
-      "outputPath": "D:\\.NET+Angular\\DatingApp\\API\\obj\\",
+      "outputPath": "D:\\DotNETplusAngular\\DatingApp\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\grytr\\AppData\\Roaming\\NuGet\\NuGet.Config",

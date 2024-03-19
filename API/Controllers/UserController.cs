@@ -33,5 +33,4 @@ public class UserController : ControllerBase
     {
         return await _dbContext.Users.FindAsync(id);
     }
-
 }
