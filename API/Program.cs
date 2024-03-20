@@ -38,7 +38,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 //Angular part
-app.UseCors(option => option.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
+app.UseCors(option => option.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
 
 app.MapControllers();
 
