@@ -71,5 +71,4 @@ public class AccountController:BaseAPIController
     {
         return await _dbContext.Users.AnyAsync(user => user.UserName == username.ToLower());
     }
-
 }

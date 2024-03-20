@@ -2,6 +2,8 @@
 using API.Data;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
+using API.Interfaces;
+using API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +24,10 @@ builder.Services.AddCors();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 */
+
+//Injection of Token Service
+builder.Services.AddScoped<ITokenService,TokenService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
