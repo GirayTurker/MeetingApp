@@ -10,6 +10,7 @@ namespace API.Services;
 
 public class TokenService : ITokenService
 {
+    //stays in server and never go to the client
     private readonly SymmetricSecurityKey _key;
     public TokenService(IConfiguration config)
     {

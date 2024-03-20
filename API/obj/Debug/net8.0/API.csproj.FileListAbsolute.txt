@@ -244,3 +244,8 @@ D:\DotNETplusAngular\DatingApp\API\obj\Debug\net8.0\refint\API.dll
 D:\DotNETplusAngular\DatingApp\API\obj\Debug\net8.0\API.pdb
 D:\DotNETplusAngular\DatingApp\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 D:\DotNETplusAngular\DatingApp\API\obj\Debug\net8.0\ref\API.dll
+D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

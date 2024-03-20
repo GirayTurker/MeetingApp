@@ -3,6 +3,7 @@ using System.Text;
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
@@ -12,14 +13,17 @@ namespace API.Controllers;
 public class AccountController:BaseAPIController
 {
     private readonly DBContext _dbContext;
-    public AccountController(DBContext dbContext)
+
+    private readonly ITokenService _tokenService;
+    public AccountController(DBContext dbContext, ITokenService tokenService)
     {
         _dbContext = dbContext;
+        _tokenService = tokenService;
     }
 
     [HttpPost("register")] //api/account/register
 
-    public async Task<ActionResult<AppUser>> Register(RegisterDTO registerDTO)
+    public async Task<ActionResult<UserDTO>> Register(RegisterDTO registerDTO)
     {
         if(await UserExist(registerDTO.UserName))
         {
@@ -31,18 +35,22 @@ public class AccountController:BaseAPIController
         var user = new AppUser
         {
             UserName = registerDTO.UserName.ToLower(),
-            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDTO.Password)),
+            PasswordHash = ComputeHashValue(hmac, registerDTO.Password), //hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDTO.Password)),
             PasswordSalt = hmac.Key
         };
 
         _dbContext.Users.Add(user);
         await _dbContext.SaveChangesAsync();
 
-        return user;
+        return new UserDTO
+        {
+            Username = user.UserName,
+            Token = _tokenService.CreateToken(user)
+        };
     }
 
     [HttpPost("login")]
-    public async Task<ActionResult<AppUser>> Login(LoginDTO loginDTO)
+    public async Task<ActionResult<UserDTO>> Login(LoginDTO loginDTO)
     {
         var user = await _dbContext.Users.SingleOrDefaultAsync(
             option => option.UserName == loginDTO.Username);
@@ -54,7 +62,9 @@ public class AccountController:BaseAPIController
 
         using var hmac = new HMACSHA512(user.PasswordSalt);
 
-        var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDTO.Password));
+        //var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDTO.Password));
+
+         var computedHash = ComputeHashValue(hmac,loginDTO.Password);
 
         for (int i=0; computedHash.Length>i; i++)
         {
@@ -64,11 +74,21 @@ public class AccountController:BaseAPIController
             }
         }
 
-        return user;
+         return new UserDTO
+        {
+            Username = user.UserName,
+            Token = _tokenService.CreateToken(user)
+        };
     }
 
     private async Task<bool>UserExist(string username)
     {
         return await _dbContext.Users.AnyAsync(user => user.UserName == username.ToLower());
+    }
+
+    private byte[] ComputeHashValue(HMACSHA512 hmac, string objAndParam)
+    {
+        var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(objAndParam));
+        return computedHash;
     }
 }
