@@ -7,47 +7,19 @@ using API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 
-//DBContext Injection
-builder.Services.AddDbContext<DBContext>(option =>
-{
-    option.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+//Extensions Folder
+builder.Services.AddAppServices(builder.Configuration);
+builder.Services.AddIdentityServices(builder.Configuration);
 
-//Angular part
-builder.Services.AddCors();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-/*
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-*/
-
-//Injection of Token Service
-builder.Services.AddScoped<ITokenService,TokenService>();
-
-//Injection of Auth
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-.AddJwtBearer(options=>
-{
-   options.TokenValidationParameters = new TokenValidationParameters
-   {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.
-        UTF8.GetBytes(builder.Configuration["TokenKey"])),
-        ValidateIssuer = false,
-        ValidateAudience = false
-   }; 
-});
 
 var app = builder.Build();
-
-
 
 // Configure the HTTP request pipeline.
 
