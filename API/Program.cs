@@ -22,17 +22,8 @@ builder.Services.AddIdentityServices(builder.Configuration);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-
-/*
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}*/
-
 app.UseHttpsRedirection();
-
-//Angular part (Config the HTTP request pipeline)
+//Angular part 
 app.UseCors(option => option.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
 
 //Auth middleware
