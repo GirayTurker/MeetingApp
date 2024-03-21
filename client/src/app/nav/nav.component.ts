@@ -18,7 +18,7 @@ export class NavComponent implements OnInit{
   getCurrenctUser()
   {
     this.accountService.currentIUser$.subscribe({
-      next: user => this.loggedIn =!!user,
+      next: user => this.loggedIn = !!user,
       error: error => console.log(error)
     })
   }

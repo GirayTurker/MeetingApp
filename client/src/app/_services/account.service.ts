@@ -21,7 +21,7 @@ export class AccountService {
         const user = response;
         if(user)
         {
-          localStorage.setItem('user',JSON.stringify(user));
+          sessionStorage.setItem('user',JSON.stringify(user));
           this.currentUserSource.next(user);
         }
       })
@@ -35,7 +35,7 @@ export class AccountService {
 
   logout()
   {
-    localStorage.removeItem('user');
+    sessionStorage.removeItem('user');
     this.currentUserSource.next(null);
   }
 }
