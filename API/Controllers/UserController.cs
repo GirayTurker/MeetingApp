@@ -1,12 +1,13 @@
 ﻿using API.Data;
 using API.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
-
+[Authorize]
 public class UserController : BaseAPIController
 {
     private readonly DBContext _dbContext;
@@ -18,6 +19,7 @@ public class UserController : BaseAPIController
 
     //HTTP ENDPOINTS!!
 
+    [AllowAnonymous]
     [HttpGet]
     public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
     {
