@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-//Responsible from HTTP Request from client to server
+//Responsible for HTTP Request from client to server (API)
 export class AccountService {
   baseUrl = 'https://localhost:5001/api/';
   

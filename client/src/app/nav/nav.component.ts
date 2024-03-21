@@ -25,4 +25,8 @@ export class NavComponent implements OnInit{
     })
   }
 
+  logout(){
+    this,this.loggedIn = false;
+  }
+
 }
