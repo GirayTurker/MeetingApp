@@ -32,4 +32,9 @@ export class HomeComponent implements OnInit{
     })
   }
 
+  calcelRegisterMode(event:boolean)
+  {
+    this.registerMode = event;
+  }
+
 }
