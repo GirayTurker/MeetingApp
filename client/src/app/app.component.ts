@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './_services/account.service';
 import { IUser } from './_models/user';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,8 @@ import { IUser } from './_models/user';
 })
 export class AppComponent implements OnInit {
   title = 'Hello GT';
-  users: any; //type of variable any
+  users:any; //type of variable any
+  
 
   constructor(private http: HttpClient, private accountService: AccountService){}
   
