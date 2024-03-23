@@ -34,7 +34,10 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      //positioning
+      positionClass:'toast-bottom-right'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
