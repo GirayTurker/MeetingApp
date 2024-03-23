@@ -14,7 +14,7 @@ export class AccountService {
   currentIUser$ = this.currentUserSource.asObservable();
   
   constructor(private http: HttpClient) {}
-
+  
   login (model:any){
     return this.http.post<IUser>(this.baseUrl+'account/login', model).pipe(
       map((response: IUser) =>{
@@ -27,6 +27,7 @@ export class AccountService {
       })
     ) 
   }
+  
 
   register(model:any)
   {

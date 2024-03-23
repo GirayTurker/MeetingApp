@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit{
+
   registerMode = false;
+
   users:any; //type of variable any
   
-  
   constructor(private http: HttpClient){}
-
 
   ngOnInit(): void {
     this.getUsers();
@@ -28,13 +28,12 @@ export class HomeComponent implements OnInit{
     ({
       next: response => this.users = response,
       error: error => console.log(error),
-      complete: () => console.log('Http Request has Completed')
-    })
+      complete: () => console.log('Http Request has Completed'),
+    })   
   }
 
   calcelRegisterMode(event:boolean)
   {
     this.registerMode = event;
   }
-
 }
