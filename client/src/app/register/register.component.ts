@@ -29,7 +29,10 @@ export class RegisterComponent implements OnInit{
         this.toastr.success('Successfull');
       },
       //error: error=>console.log(error)
-      error: (error:any) => this.toastr.error(error.error)
+      error: (error:any) =>{
+        this.toastr.error(error.error),
+        console.log(error)
+      } 
     });
   }
 
