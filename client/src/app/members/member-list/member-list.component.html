@@ -1,6 +1,5 @@
 <div *ngIf="(accountService.currentIUser$ | async) as user" class="container mt-5">
     <div style="text-align: center;">
-    <h1>Welcome {{user.username | titlecase}} </h1>
-    <p class="lead">Lets find your matches</p>
+    <h1>Lets find your matches {{user.username | titlecase}} </h1>
     </div>
 </div>

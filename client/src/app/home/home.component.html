@@ -1,6 +1,6 @@
-<div class="container mt-5">
+<div *ngIf="!(accountService.currentIUser$ |async)" class="container mt-5">
     <div *ngIf="!registerMode" style="text-align: center;">
-        <h1>Find your match</h1>
+        <h1>Find new friends</h1>
         <p class="lead">Come on in to view your matches.. all you need to sign up</p>
         <div class="text-center">
             <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">Register</button>
@@ -15,6 +15,11 @@
             </div>
         </div>
     </div>
+</div>
+
+<div *ngIf="(accountService.currentIUser$ |async) && (accountService.currentIUser$ |async) as user" class="container mt-5">
+    <div style="text-align: center;">
+        <h1>Welcome {{user.username | titlecase}} </h1>
 </div>
 
 

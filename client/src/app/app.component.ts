@@ -10,7 +10,7 @@ import { IUser } from './_models/user';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  title = 'Hello GT';
+  //title = 'Hello GT';
   
   constructor( private accountService: AccountService){}
   
