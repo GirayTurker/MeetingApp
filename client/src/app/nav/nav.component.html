@@ -4,15 +4,18 @@
 
       <!--Deleted it after Route Guard.Toastr does not worked with it-->
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link"  routerLink="/members" routerLinkActive="active">Matches</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/lists" routerLinkActive="active">Lists</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
-          </li>
+          <!--Hiding components-->
+          <ng-container *ngIf="accountService.currentIUser$ | async">
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="/members" routerLinkActive="active">Matches</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/lists" routerLinkActive="active">Lists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
+            </li>
+          </ng-container>
         </ul>
 
         <div class="dropdown" *ngIf="accountService.currentIUser$ | async" dropdown>
