@@ -101,6 +101,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Environment
 
+VsCode 
+[Download](https://code.visualstudio.com/download")
 
 ## Further help
 
