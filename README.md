@@ -4,14 +4,14 @@ This is the README file for the **Project Name** project.
 
 ## Table of Contents
 
-- [Description](#description)
+- [API Description](#api)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Launch Settings](#launch-settings)
 - [Angular](#client)
 
-## Description
+## API 
 
 This project consists of two parts: a .NET web API application and an Angular front-end (Client) application. The .NET web application is built using .NET 8.0 and utilizes various packages for functionality including authentication, database design, and token management. The Angular client application is generated with Angular CLI version 17.3.1.
 
@@ -71,6 +71,9 @@ Launch settings control how the .NET project is run and debugged. Below are the 
   }
 }
 ```
+
+
+
 ## Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
