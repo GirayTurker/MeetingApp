@@ -1,6 +1,6 @@
-# Dating APP
+# Meeting APP
 
-This is the README file for the **Dating APP* project.
+This is the README file for the **Meeting APP* project.
 
 ## Table of Contents
 
