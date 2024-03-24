@@ -8,6 +8,8 @@ import {IUser} from '../_models/user'
 })
 //Responsible for HTTP Request from client to server (API)
 export class AccountService {
+  
+  
   baseUrl = 'https://localhost:5001/api/';
   
   private currentUserSource = new BehaviorSubject<IUser | null>(null);
@@ -32,8 +34,9 @@ export class AccountService {
   register(model:any)
   {
     return this.http.post<IUser>(this.baseUrl+"account/register", model).pipe(
-      map(user =>
+      map((response:IUser) =>
       {
+        const user = response;
         if(user)
         {
           sessionStorage.setItem('user',JSON.stringify(user));
