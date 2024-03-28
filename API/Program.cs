@@ -1,12 +1,4 @@
 
-using API.Data;
-using Microsoft.Extensions.Options;
-using Microsoft.EntityFrameworkCore;
-using API.Interfaces;
-using API.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +12,13 @@ builder.Services.AddIdentityServices(builder.Configuration);
 
 
 var app = builder.Build();
+
+/*
+if(builder.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+*/
 
 // Configure the HTTP request pipeline.
 app.UseHttpsRedirection();

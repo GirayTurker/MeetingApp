@@ -23,7 +23,7 @@ public class BuggyController:BaseAPIController
        return "screen text";     
     }
 
-    [HttpGet("server-error")]
+    [HttpGet("not-found")]
     public ActionResult<AppUser>GetNotFound()
     {
        var thing = _dbContext.Users.Find(-1);
@@ -32,6 +32,31 @@ public class BuggyController:BaseAPIController
 
        return thing;   
     }
+
+    [HttpGet("server-error")]
+        public ActionResult<string> GetServerError()
+        {
+
+         var thing = _dbContext.Users.Find(-1);
+
+            var thingToReturn = thing.ToString();
+
+            return thingToReturn;
+         /*
+         try
+         {
+            var thing = _dbContext.Users.Find(-1);
+
+            var thingToReturn = thing.ToString();
+
+            return thingToReturn;
+         }
+         catch(Exception ex)
+         {
+            return StatusCode(500, "Server Error Occured");
+         }
+          */  
+        }
 
     [HttpGet("bad-request")]
     public ActionResult<string>GetBadRequest()
