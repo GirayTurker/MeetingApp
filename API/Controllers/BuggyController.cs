@@ -42,7 +42,7 @@ public class BuggyController:BaseAPIController
             var thingToReturn = thing.ToString();
 
             return thingToReturn;
-         /*
+         /* USE FOR ""NOT"" MIDDLEWARE
          try
          {
             var thing = _dbContext.Users.Find(-1);

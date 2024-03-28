@@ -1,4 +1,5 @@
 
+using API;
 using API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +20,9 @@ if(builder.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 */
+
+//Middleware Exception Handling Should go top of the HTTP Pipeline!!!!
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 app.UseHttpsRedirection();
