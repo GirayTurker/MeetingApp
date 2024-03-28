@@ -1,0 +1,42 @@
+﻿using System.Data.Common;
+using API.Controllers;
+using API.Data;
+using API.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace API;
+
+public class BuggyController:BaseAPIController
+{
+    private readonly DBContext _dbContext;
+
+    public BuggyController(DBContext dBContext)
+    {
+        _dbContext = dBContext;
+    }
+
+    [Authorize]
+    [HttpGet("auth")]
+    public ActionResult<string>GetSecret()
+    {
+       return "screen text";     
+    }
+
+    [HttpGet("server-error")]
+    public ActionResult<AppUser>GetNotFound()
+    {
+       var thing = _dbContext.Users.Find(-1);
+
+       if(thing == null) {return NotFound();}
+
+       return thing;   
+    }
+
+    [HttpGet("bad-request")]
+    public ActionResult<string>GetBadRequest()
+    {
+       return BadRequest("This is Bad Request");    
+    }
+    
+}
