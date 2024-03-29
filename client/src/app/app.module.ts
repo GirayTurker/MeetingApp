@@ -16,6 +16,7 @@ import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './_modules/shared.module';
+import { TestErrorComponent } from './errors/test-error/test-error.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { SharedModule } from './_modules/shared.module';
     MemberListComponent,
     MemberDetailsComponent,
     ListsComponent,
-    MessagesComponent
+    MessagesComponent,
+    TestErrorComponent
   ],
   imports: [
     BrowserModule,

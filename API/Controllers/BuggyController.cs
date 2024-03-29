@@ -1,4 +1,5 @@
 ﻿using System.Data.Common;
+using System.Net;
 using API.Controllers;
 using API.Data;
 using API.Entities;
@@ -24,13 +25,16 @@ public class BuggyController:BaseAPIController
     }
 
     [HttpGet("not-found")]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public ActionResult<AppUser>GetNotFound()
     {
        var thing = _dbContext.Users.Find(-1);
 
        if(thing == null) {return NotFound();}
 
-       return thing;   
+           // Custom response including status code, data, and status text
+    return StatusCode((int)HttpStatusCode.NotFound, new { StatusCode = HttpStatusCode.NotFound, Data = thing, StatusText = "Not Found" });
+ 
     }
 
     [HttpGet("server-error")]
@@ -41,7 +45,7 @@ public class BuggyController:BaseAPIController
 
             var thingToReturn = thing.ToString();
 
-            return thingToReturn;
+            return StatusCode((int)HttpStatusCode.InternalServerError, new { StatusCode = HttpStatusCode.InternalServerError, Data = thingToReturn, StatusText = "Server Not Found" });
          /* USE FOR ""NOT"" MIDDLEWARE
          try
          {
@@ -61,7 +65,7 @@ public class BuggyController:BaseAPIController
     [HttpGet("bad-request")]
     public ActionResult<string>GetBadRequest()
     {
-       return BadRequest("This is Bad Request");    
+       return StatusCode((int)HttpStatusCode.BadRequest, new { StatusCode = HttpStatusCode.BadRequest, Data =  BadRequest("This is bad Request"), StatusText = "This is bad Request" });    
     }
     
 }

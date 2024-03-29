@@ -6,6 +6,7 @@ import { MemberDetailsComponent } from './members/member-details/member-details.
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { authGuard } from './_guards/auth.guard';
+import { TestErrorComponent } from './errors/test-error/test-error.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent}, //localpath
@@ -19,7 +20,7 @@ const routes: Routes = [
       {path:'messages', component:MessagesComponent},//localpath/messages
     ]  
   },
-  
+  {path: 'errors', component:TestErrorComponent},
   {path:'**', component:HomeComponent, pathMatch:"full"} //What if localpath/
 ];
 
