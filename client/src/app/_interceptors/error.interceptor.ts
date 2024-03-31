@@ -34,30 +34,31 @@ export class ErrorInterceptor implements HttpInterceptor {
                   }
                 }
                 //flat is flattern 2 array to single arrray
-                this.toastr.error(modelStateError.flat().toString());
+                //this.toastr.error(modelStateError.flat().toString());
                 throw modelStateError;
               }
               else
               {
-                this.toastr.error(error.error.statusText, error.status.toString())
+                //this.toastr.error(error.error.statusText, error.status.toString())
+                console.log(error.error.statusText);
               }
               
               break;
 
               case 401:
-                this.toastr.error('Unauthorised', error.status.toString());
+                //this.toastr.error('Unauthorised', error.status.toString());
                 break;
               case 404:
-                this.toastr.error(error.error.statusText, error.status.toString())
+                //this.toastr.error(error.error.statusText, error.status.toString())
                 this.router.navigateByUrl('/not-found');
                 break;
               case 500:
-                this.toastr.error(error.error.statusText, error.status.toString())
-                const navigationExtras:NavigationExtras = {state:{error:error.error}} 
+                //this.toastr.error(error.error.statusText, error.status.toString())
+                const navigationExtras:NavigationExtras = {state:{error: error.error}} 
                 this.router.navigateByUrl('/server-error', navigationExtras); 
                 break;
               default:
-                this.toastr.error('Unexpected Error, Check console');
+                //this.toastr.error('Unexpected Error, Check console');
                 console.log(error); 
                 break; 
           }
