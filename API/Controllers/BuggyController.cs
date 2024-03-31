@@ -30,10 +30,10 @@ public class BuggyController:BaseAPIController
     {
        var thing = _dbContext.Users.Find(-1);
 
-       if(thing == null) {return NotFound();}
+       if(thing == null) { return StatusCode((int)HttpStatusCode.NotFound, new { StatusCode = HttpStatusCode.NotFound, Data = NotFound("Not Found"), StatusText = "Not Found" });;}
 
            // Custom response including status code, data, and status text
-    return StatusCode((int)HttpStatusCode.NotFound, new { StatusCode = HttpStatusCode.NotFound, Data = thing, StatusText = "Not Found" });
+    return thing;
  
     }
 
@@ -43,9 +43,9 @@ public class BuggyController:BaseAPIController
 
          var thing = _dbContext.Users.Find(-1);
 
-            var thingToReturn = thing.ToString();
+            var thingToReturn = StatusCode((int)HttpStatusCode.InternalServerError, new { StatusCode = HttpStatusCode.InternalServerError, Data = HttpStatusCode.InternalServerError, StatusText = "Server Not Found" });
 
-            return StatusCode((int)HttpStatusCode.InternalServerError, new { StatusCode = HttpStatusCode.InternalServerError, Data = thingToReturn, StatusText = "Server Not Found" });
+            return thingToReturn;
          /* USE FOR ""NOT"" MIDDLEWARE
          try
          {

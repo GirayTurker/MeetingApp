@@ -1,7 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpStatusCode } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+
 
 @Component({
   selector: 'app-test-error',

@@ -38,7 +38,8 @@ export class NavComponent implements OnInit{
         this.toastr.success('Successfull');
       },
       //error: (error: any)=>console.log(error)
-      error:(error : any)  =>this.toastr.error(error.error)
+      error:(error : any)  =>{this.toastr.error(error.error), console.log(error)}
+      
     })
   }
 
