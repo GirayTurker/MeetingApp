@@ -34,7 +34,8 @@ export class ErrorInterceptor implements HttpInterceptor {
                   }
                 }
                 //flat is flattern 2 array to single arrray
-                throw this.toastr.error(modelStateError.flat().toString());
+                this.toastr.error(modelStateError.flat().toString());
+                throw modelStateError;
               }
               else
               {
