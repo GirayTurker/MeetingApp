@@ -22,6 +22,7 @@ public static class AddAppServiceExtensions
         //Injection of Token Service
         services.AddScoped<ITokenService,TokenService>();
         services.AddScoped<IUserRepository,UserRepository>();
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         return services;
     }

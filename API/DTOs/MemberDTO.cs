@@ -6,6 +6,7 @@ public class MemberDTO
 
     public string UserName {get; set;}  
 
+    //AutoMapper will initialize it with GetAge() function Automatically!!!
     public int Age {get; set;}
 
     public string KnownAs {get; set;} 
