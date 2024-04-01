@@ -253,3 +253,5 @@ D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authent
 D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\Data\UserSeedData.json
+D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\AutoMapper.dll
+D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
