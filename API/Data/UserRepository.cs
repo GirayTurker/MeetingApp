@@ -13,17 +13,26 @@ public class UserRepository : IUserRepository
     }
     public async Task<AppUser> GetByUserNameASync(string username)
     {
-        return await _context.Users.SingleOrDefaultAsync(x=> x.UserName == username);
+        //include related data (in this case Photo for the user)
+        return await _context.Users
+        .Include(p=>p.Photos)
+        .SingleOrDefaultAsync(x=> x.UserName == username);
+        
     }
 
     public async Task<AppUser> GetUserById(int id)
     {
         return await _context.Users.FindAsync(id);
+
+
     }
 
     public async Task<IEnumerable<AppUser>> GetUsersASync()
     {
-        return  await _context.Users.ToListAsync();
+        //include related data (in this case Photo for the user)        
+        return  await _context.Users
+                .Include(p=>p.Photos)
+                .ToListAsync();
     }
 
     public async Task<bool> SaveAllASync()
