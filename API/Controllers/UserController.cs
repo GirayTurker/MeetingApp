@@ -28,11 +28,10 @@ public class UserController : BaseAPIController
     [HttpGet]
     public async Task<ActionResult<IEnumerable<MemberDTO>>> GetUsers()
     {
-        var users = await _userRepository.GetUsersASync();
+        var users = await _userRepository.GetMembersDTOASync();
 
-        var usersToReturn = _mapper.Map<IEnumerable<MemberDTO>>(users);
 
-        return Ok(usersToReturn);
+        return Ok(users);
 
         //return users; //200 Ok Response
     }
@@ -41,8 +40,7 @@ public class UserController : BaseAPIController
 
     public async Task<ActionResult<MemberDTO>> GetUser(string username)
     {
-        var user =  await _userRepository.GetByUserNameASync(username);
+        return  await _userRepository.GetMemberDTOAsync(username);
 
-        return _mapper.Map<MemberDTO>(user);
     }
 }
