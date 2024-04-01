@@ -21,6 +21,7 @@ public static class AddAppServiceExtensions
 
         //Injection of Token Service
         services.AddScoped<ITokenService,TokenService>();
+        services.AddScoped<IUserRepository,UserRepository>();
 
         return services;
     }
