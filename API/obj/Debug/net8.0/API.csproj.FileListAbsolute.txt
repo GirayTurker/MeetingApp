@@ -252,3 +252,4 @@ D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\System.IdentityModel.Tokens.
 D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\DotNETplusAngular\DatingApp\API\bin\Debug\net8.0\Data\UserSeedData.json

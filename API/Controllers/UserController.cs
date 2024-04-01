@@ -19,7 +19,6 @@ public class UserController : BaseAPIController
 
     //HTTP ENDPOINTS!!
 
-    [AllowAnonymous]
     [HttpGet]
     public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
     {
