@@ -30,10 +30,9 @@ public class UserController : BaseAPIController
     {
         var users = await _userRepository.GetMembersDTOASync();
 
-
         return Ok(users);
 
-        //return users; //200 Ok Response
+        //return users; //200 Ok Responsed
     }
 
     [HttpGet("{username}")] //api/user/2

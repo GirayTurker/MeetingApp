@@ -14,6 +14,7 @@ public class Photo
     public string PublicId {get; set;}
 
     //IMPORTANT PART
+    //WITH THIS PART, NEW PHOTO WILL NOT CREATE IF NEW USER IS NOT EXIST!!
     public int AppuserId { get; set; }  
 
     public AppUser AppUser {get; set;}
