@@ -3,6 +3,7 @@
 namespace API.Entities;
 
 [Table("Photos")] //Specify the using table in DB
+// 1 USER MANY PHOTOS
 public class Photo
 {
     public int id { get; set; }

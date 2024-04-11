@@ -17,7 +17,7 @@ public class UserRepository : IUserRepository
         _context = context;
         _mapper = mapper;
     }
-    public async Task<AppUser> GetByUserNameASync(string username)
+    public async Task<AppUser> GetByUserNameAsync(string username)
     {
         //include related data (in this case Photo for the user)
         return await _context.Users
@@ -41,11 +41,9 @@ public class UserRepository : IUserRepository
         .ToListAsync();
     }
 
-    public async Task<AppUser> GetUserById(int id)
+    public async Task<AppUser> GetUserByIdAsync(int id)
     {
         return await _context.Users.FindAsync(id);
-
-
     }
 
     public async Task<IEnumerable<AppUser>> GetUsersASync()
