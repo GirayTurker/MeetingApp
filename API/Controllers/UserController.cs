@@ -28,7 +28,7 @@ public class UserController : BaseAPIController
     [HttpGet]
     public async Task<ActionResult<IEnumerable<MemberDTO>>> GetUsers()
     {
-        var users = await _userRepository.GetMembersDTOASync();
+        var users = await _userRepository.GetMembersDTOAsync();
 
         return Ok(users);
 

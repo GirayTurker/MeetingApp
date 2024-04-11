@@ -34,7 +34,7 @@ public class UserRepository : IUserRepository
         .SingleOrDefaultAsync();
     }
 
-    public async Task<IEnumerable<MemberDTO>> GetMembersDTOASync()
+    public async Task<IEnumerable<MemberDTO>> GetMembersDTOAsync()
     {
         return await _context.Users
         .ProjectTo<MemberDTO>(_mapper.ConfigurationProvider)
