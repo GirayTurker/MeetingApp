@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
 import {IUser} from '../_models/user'
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import {IUser} from '../_models/user'
 export class AccountService {
   
   
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = environment.apiUrl;
   
   private currentUserSource = new BehaviorSubject<IUser | null>(null);
   currentIUser$ = this.currentUserSource.asObservable();
