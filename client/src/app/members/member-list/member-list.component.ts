@@ -10,13 +10,28 @@ import { Observable, Subscription, map} from 'rxjs';
 })
 export class MemberListComponent {
   members: Member [] = [];
+  userName: string ="username";
 
   constructor(private memberService: MembersService){}
 
   //As soon as initialize the root, call loadMembers method
   ngOnInit():void{
     this.loadMembers();
+    this.getUserName();
+  }
 
+  getUserName()
+  {
+    const userFromStorage = sessionStorage.getItem('user');
+    // console.log(sessionStorage.getItem('user'));
+    if(userFromStorage){
+      const userNameFromStorage = JSON.parse(userFromStorage);
+      this.userName = userNameFromStorage.username;
+      // console.log(this.userName);
+    }
+    else{
+      this.userName = "username";
+    }
   }
 
   loadMembers(){
