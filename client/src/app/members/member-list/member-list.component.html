@@ -1,5 +1,9 @@
-<div *ngIf="(accountService.currentIUser$ | async) as user" class="container mt-5">
+<!-- <div *ngIf="(accountService.currentIUser$ | async) as user" class="container mt-5">
     <div style="text-align: center;">
     <h1>Lets find your matches {{user.username | titlecase}} </h1>
     </div>
+</div> -->
+
+<div class="row">
+    <div class="col-2"><p *ngFor="let member of members">{{member.knownAs}}</p></div>
 </div>

@@ -15,11 +15,11 @@ export class MembersService {
     return this.http.get<Member[]>(this.baseUrl+'user',this.getHttpOptions())
   }
 
-  getMember(username:string)
+  getMember(userName:string)
   {
-    return this.http.get<Member>(this.baseUrl+'user/'+username, this.getHttpOptions()) 
+    return this.http.get<Member>(this.baseUrl+'user/'+userName, this.getHttpOptions()) 
   }
-
+ 
 //Pass Auth Token with Header  
 getHttpOptions(){
   //Token Passed sessionStorage in account services, fish it out
@@ -29,7 +29,7 @@ getHttpOptions(){
   const user = JSON.parse(userString);
   return{
     headers:new HttpHeaders({
-      Authorization: 'Bearer '+user.Token
+      Authorization: 'Bearer '+user.token
     })
   }
 }

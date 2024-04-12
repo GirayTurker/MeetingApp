@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { AccountService } from '../../_services/account.service';
+import { Member } from '../../_models/member';
+import { MembersService } from '../../_services/members.service';
+import { Observable, Subscription, map} from 'rxjs';
 
 @Component({
   selector: 'app-member-list',
@@ -7,7 +9,20 @@ import { AccountService } from '../../_services/account.service';
   styleUrl: './member-list.component.css'
 })
 export class MemberListComponent {
+  members: Member [] = [];
 
-  constructor(public accountService:AccountService){}
+  constructor(private memberService: MembersService){}
+
+  //As soon as initialize the root, call loadMembers method
+  ngOnInit():void{
+    this.loadMembers();
+
+  }
+
+  loadMembers(){
+    this.memberService.getMembers().subscribe({
+      next: members => this.members = members
+    })
+  }
 
 }
